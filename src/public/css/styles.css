@@ -1,0 +1,49 @@
+.left{
+    background-color: #ccc;
+}
+
+.center{
+
+}
+
+.right{
+    background-color: #ccc;
+}
+
+.main-container{
+    padding-top: 50px;
+}
+
+.index-intro{
+    /* height: 350px; */
+    width: 100%;
+    background-color: #f3f3f3;
+}
+.index-intro .jumpotron{
+    padding: 100px 60px;
+    margin:0px;
+    background-image: url('/img/baner1.jpg');
+
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.index-intro .jumpotron h1{
+    font-size: 50px;
+}
+
+.index-gallery{
+    /* height: 350px; */
+    width: 100%;
+    background-color: #fff;
+}
+
+.index-gallery h2 {
+    /* height: 350px; */
+    text-align: center;
+}
+
+.index-gallery p {
+    /* height: 350px; */
+    text-align: center;
+}
