@@ -1,24 +1,34 @@
 <div class="container p-4">
+
+
     <div class="row">
+
+
         {{#each graficas}}
             {{!-- {{this}} --}}
             <div class="col-md-3">
+
+
                 <div class="card text=center">
+
                     <div class="card-body">
 
-                        <a href="{{url}}" target="_blank">
                             <h3 class="card-title text-uppercase">
-                                {{title}}
+                                {{NOMBRE}}
                             </h3>
-                        </a>
-                        <a href="/graficas/mostrar/{{id}}">Ver grafica</a>
-                        <p class="m-2">{{description}}</p>
-                        <p>{{timeago created_at}}</p>
 
-                        <a href="/graficas/delete/{{id}}" class="btn btn-danger">Eliminar</a>
-                        <a href="/graficas/edit/{{id}}" class="btn btn-secondary">Editar</a>
+
+                        <a href="/graficas/mostrar/{{ID}}">Ver grafica</a>
+
+                        <p class="m-2">{{SUPER_DESCRIPCION}}</p>
+
+                        <a href="/graficas/delete/{{ID}}" class="btn btn-danger">Eliminar</a>
+                        <a href="/graficas/edit/{{ID}}" class="btn btn-secondary">Editar</a>
                     </div>
+
                 </div>
+
+
             </div>
 
         {{else}}
@@ -33,4 +43,6 @@
 
 
     </div>
+
+
 </div>

@@ -10,16 +10,23 @@ const { database } = require('./keys');
 const pasport = require('passport');
 const passport = require('passport');
 const multer = require('multer');
+const csv = require('csv-parser');
+const csvtojson = require('csvtojson');
 //const morris = require('morris-js-module');
 
 //Inicializar
 const app = express();
 require('./lib/passport');
+require('./lib/jquery');
+//require('./views/ploteos/engine');
+
+
 
 
 //Configuraciones
 app.set('port', process.env.PORT || 4000);
 app.set('views', path.join(__dirname, 'views'));
+
 
 app.engine('.hbs', exphbs({
     defaultLayout: 'main',
@@ -55,6 +62,10 @@ app.use((req, res, next) => {
     app.locals.success = req.flash('success');
     app.locals.message = req.flash('message');
     app.locals.user = req.user;
+
+
+
+
     next();
 
 });
@@ -66,13 +77,17 @@ app.use((req, res, next) => {
 //Rutas del sitio
 app.use(require('./routes/routes.js'));
 app.use(require('./routes/authentication.js'));
+
 app.use(require('./routes/datasets.js'));
 app.use(require('./routes/graficas.js'));
+app.use(require('./routes/ploteos.js'));
+
 
 app.use('/links', require('./routes/links.js'));
 app.use('/datasets', require('./routes/datasets.js'));
 app.use('/graficas', require('./routes/graficas.js'));
-
+app.use('/ploteos', require('./routes/ploteos.js'));
+// app.use('/routes', require('./routes/routes.js'));
 
 
 

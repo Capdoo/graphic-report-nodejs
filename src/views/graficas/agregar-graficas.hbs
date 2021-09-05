@@ -1,4 +1,14 @@
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
 <div class="container p-4">
+
+
+{{!-- ID
+NOMBRE
+IMAGEN
+DESCRIPCIONN --}}
 
     <div class="row">
         <div class="col-md-4 mx-auto">
@@ -7,30 +17,44 @@
                 <div class="card-body">
 
                     <form action="/graficas/agregar" method="POST">
+                        {{!-- Nombre --}}
                         <div class="form-group">
-                            <input type="text" class="form-control" name="title" placeholder="Tile" autofocus>
+                            <input type="text" class="form-control" name="nombre" placeholder="Titulo" autofocus>
                         </div>
                         <br>
+                        {{!-- Tipo Grafica --}}
                         <div class="form-group">
-                            <input type="url" name="url" class="form-control" placeholder="URL" autofocus>
+                            <select name = "tipo" class="form-select form-select-sm" aria-label=".form-select-sm example">
+                                <option selected>Tipo de Gráfica</option>
+                                <option value="1">Gráfica Barras</option>
+                                <option value="2">Gráfica Pie</option>
+                                <option value="3">Gráfica Histograma</option>
+                                <option value="3">Gráfica Puntos</option>
+                            </select>
+
                         </div>
                         <br>
+                        {{!-- Super Descripcion --}}
                         <div class="form-group">
-                            <textarea name="description" id="" rows="2" class="form-control"
-                                placeholder="Description"></textarea>
+                            <textarea name="super_descripcion" id="" rows="2" class="form-control"
+                                placeholder="Super Descripcion"></textarea>
+                        </div>
+                        <br>
+                        {{!-- Descripcion --}}
+                        <div class="form-group">
+                            <textarea name="descripcion" id="" rows="2" class="form-control"
+                                placeholder="Descripcion"></textarea>
                         </div>
 
                         <br>
                         <div class="form-group">
-                            <button class="btn btn-success col-12">
+                            <button class="btn btn-primary col-12">
                                 Save
                             </button>
                         </div>
                     </form>
 
                 </div>
-
-
 
             </div>
         </div>

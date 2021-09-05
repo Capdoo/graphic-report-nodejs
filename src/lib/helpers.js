@@ -16,6 +16,7 @@ helpers.matchPassword = async (password,savedPassword) => {
 
         console.log('try de matchPass');
         return await bcrypt.compare(password,savedPassword);
+        console.log('Veamos');
     
     } catch (error) {
 

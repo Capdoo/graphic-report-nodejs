@@ -6,20 +6,21 @@
 
                 <div class="card-body">
 
-                    <form action="/graficas/edit/{{grafica.id}}" method="POST">
+                    <form action="/graficas/edit/{{grafica.ID}}" method="POST">
                         <div class="form-group">
-                            <input type="text" class="form-control" name="title" placeholder="Tile" autofocus
-                                value="{{grafica.title}}">
+                            <input type="text" class="form-control" name="nombre" placeholder="Tile" autofocus
+                                value="{{grafica.NOMBRE}}">
                         </div>
                         <br>
                         <div class="form-group">
-                            <input type="url" name="url" class="form-control" placeholder="URL" autofocus
-                                value="{{grafica.url}}">
+                            <textarea name="super_descripcion" id="" rows="2" class="form-control"
+                            placeholder="Description">{{grafica.SUPER_DESCRIPCION}}</textarea>
+
                         </div>
                         <br>
                         <div class="form-group">
-                            <textarea name="description" id="" rows="2" class="form-control"
-                                placeholder="Description">{{grafica.description}}</textarea>
+                            <textarea name="descripcion" id="" rows="2" class="form-control"
+                                placeholder="Description">{{grafica.DESCRIPCION}}</textarea>
                         </div>
 
                         <br>
