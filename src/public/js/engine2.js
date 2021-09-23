@@ -79,7 +79,7 @@ const barrasGrafico = async () =>{
             // labels: ['Hola', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
             labels: labels,
             datasets: [{
-                label: '# of Votes',
+                label: 'Cantidad medicina',
                 // data: [parseInt(values[0],8), 19, 3, 5, 2, 3],
                 data: values,
                 backgroundColor: [
@@ -178,7 +178,7 @@ const pieGrafico = async () =>{
               },
               title: {
                 display: true,
-                text: 'Chart.js Pie Chart'
+                text: 'Horas de sueño pacientes con migraña'
               }
             }
           }

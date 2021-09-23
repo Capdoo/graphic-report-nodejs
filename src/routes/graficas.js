@@ -200,10 +200,10 @@ router.post('/plotear/:id', isLoggedIn,async (req, res) => {
     
                 console.log(source.length);
         
-                for (x of source){
-                    labels.push(x.hsueno)
-                    values.push(x.cantidad)
-                }
+                // // for (x of source){
+                //     labels.push(x.hsueno)
+                //     values.push(x.cantidad)
+                // }
         
                 nroBarras = source.length;;
                 enviarData(labels,values,source);
@@ -243,7 +243,7 @@ router.get('/send',gLabel,async (req, res) => {
 });
 
 router.get('/tipo-grafica',gLabel,async (req, res) => {
-    console.log("Enviando el tipo de grafica")
+    console.log("Enviando el tipo de grafica", tipo)
     res.send(tipo);
 });
 
