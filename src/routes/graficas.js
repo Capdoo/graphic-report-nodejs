@@ -8,7 +8,6 @@ const csv = require('csv-parser');
 const csvtojson = require('csvtojson');
 
 let real;
-
 let gLabel = [];
 let gValues = [];
 let tipo;
@@ -37,8 +36,6 @@ router.post('/agregar',isLoggedIn, async (req, res) => {
     res.redirect('/graficas');
 });
 
-
-
 //GET-PRINCIPAL GRAFICAS
 router.get('/', isLoggedIn,async (req, res) => {
     const graficas = await pool.query('SELECT * FROM GRAFICAS');
@@ -46,14 +43,10 @@ router.get('/', isLoggedIn,async (req, res) => {
     res.render('graficas/listar-graficas', { graficas: graficas });
 })
 
-
-
 //GET-ELIMINAR GRAFICA
 router.get('/delete/:ID', isLoggedIn,async (req, res) => {
     const { ID } = req.params;
-
     const dataset_id =  await pool.query('SELECT * FROM GRAFICAS WHERE ID = ?', [ID])
-    
     console.log("Mi dataset id de grafica ",dataset_id);
 
     let target = dataset_id[0].DATASET_ID;
@@ -68,19 +61,14 @@ router.get('/delete/:ID', isLoggedIn,async (req, res) => {
     console.log(req.params.ID);
 });
 
-
-
 //GET-EDITAR GRAFICA
 router.get('/edit/:ID',isLoggedIn, async (req, res) => {
     const { ID } = req.params;
-
     console.log("Esta es la g a editar",[ID]);
     const graficas = await pool.query('SELECT * FROM GRAFICAS WHERE ID = ?', [ID]);
     res.render('graficas/editar-graficas', { grafica: graficas[0] })
     console.log("Esta es la g a editar",graficas[0]);
-
 });
-
 
 //POST-EDITAR GRAFICA
 router.post('/edit/:id', isLoggedIn,async (req, res) => {
@@ -97,10 +85,6 @@ router.post('/edit/:id', isLoggedIn,async (req, res) => {
     res.redirect('/graficas');
 });
 
-
-
-
-
 //POST-IMPORTAR DATASET
 router.post('/importar/:id', isLoggedIn,async (req, res) => {
     const { id } = req.params;
@@ -112,14 +96,11 @@ router.post('/importar/:id', isLoggedIn,async (req, res) => {
     res.redirect('/graficas');
 });
 
-
-
 //GET-MOSTRAR GRAFICA VISTA PREVIA
 router.get('/mostrar/:ID',isLoggedIn, async(req, res) => {
     console.log('HEY')
     const { ID } = req.params;
     const graficas = await pool.query('SELECT * FROM GRAFICAS WHERE ID = ?', [ID]);
-
 
     let tipo_nombre;
     switch(graficas[0].TIPO_ID){
@@ -137,17 +118,10 @@ router.get('/mostrar/:ID',isLoggedIn, async(req, res) => {
             break;
     }
 
-
     const datasets = await pool.query('SELECT * FROM DATASETS');
     console.log('MIS DATASETS', datasets)
-
-
     res.render('graficas/mostrar-graficas', { grafica: graficas[0] , datasets : datasets, tipo_nombre})
-
 });
-
-
-
 
 //POST-PLOTEAR GRAFICA EN LA MISMA PESTAÑA
 router.post('/plotear/:id', isLoggedIn,async (req, res) => {
@@ -210,16 +184,9 @@ router.post('/plotear/:id', isLoggedIn,async (req, res) => {
             });
             break;
 
-
-
         case '3':
 
-
-
-
         case '4':
-
-
         
     }
 
@@ -230,15 +197,11 @@ router.post('/plotear/:id', isLoggedIn,async (req, res) => {
     }
 
     //PRIMERO REVISAR LA DATA :)
-
     res.render('ploteos/plotear-grafica')
 });
 
-
 router.get('/send',gLabel,async (req, res) => {
-
     console.log("Enviando el array de objetos")
-
     res.send(real);
 });
 
@@ -247,11 +210,4 @@ router.get('/tipo-grafica',gLabel,async (req, res) => {
     res.send(tipo);
 });
 
-
-
 module.exports = router, gValues, gLabel;
-
-
-
-
-

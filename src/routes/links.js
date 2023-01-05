@@ -53,8 +53,6 @@ router.get('/edit/:id',isLoggedIn, async (req, res) => {
     // res.send('Eliminado');
 });
 
-
-
 router.post('/edit/:id', isLoggedIn,async (req, res) => {
     const { id } = req.params;
     const { title, description, url } = req.body;
@@ -77,8 +75,6 @@ router.get('/mostrar/:id',isLoggedIn, async(req, res) => {
     res.render('links/mostrar', { link: links[0] })
     // res.render('links/mostrar');
 });
-
-
 
 module.exports = router;
 

@@ -24,9 +24,6 @@ const upload = multer({storage:storage});
 
 module.exports = upload;
 
-
-
-
 //Para mostrar el formulario
 router.get('/cargar', isLoggedIn,(req,res) => {
     res.render('datasets/cargar');
@@ -55,14 +52,7 @@ router.post('/subir',upload.single('avatar'),isLoggedIn, async (req, res) => {
 
 });
 
-
-
-
-
-
-
 module.exports = router;
-
 
 //2:43:29
 

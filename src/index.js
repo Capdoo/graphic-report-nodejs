@@ -20,13 +20,9 @@ require('./lib/passport');
 require('./lib/jquery');
 //require('./views/ploteos/engine');
 
-
-
-
 //Configuraciones
 app.set('port', process.env.PORT || 4000);
 app.set('views', path.join(__dirname, 'views'));
-
 
 app.engine('.hbs', exphbs({
     defaultLayout: 'main',
@@ -38,8 +34,6 @@ app.engine('.hbs', exphbs({
 app.set('view engine', '.hbs');
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-
-
 
 //Middlewares
 app.use(session({
@@ -56,23 +50,13 @@ app.use(express.json());
 app.use(passport.initialize());
 app.use(passport.session());
 
-
 //Variables Globales
 app.use((req, res, next) => {
     app.locals.success = req.flash('success');
     app.locals.message = req.flash('message');
     app.locals.user = req.user;
-
-
-
-
     next();
-
 });
-
-
-
-
 
 //Rutas del sitio
 app.use(require('./routes/routes.js'));
@@ -82,26 +66,16 @@ app.use(require('./routes/datasets.js'));
 app.use(require('./routes/graficas.js'));
 app.use(require('./routes/ploteos.js'));
 
-
 app.use('/links', require('./routes/links.js'));
 app.use('/datasets', require('./routes/datasets.js'));
 app.use('/graficas', require('./routes/graficas.js'));
 app.use('/ploteos', require('./routes/ploteos.js'));
 // app.use('/routes', require('./routes/routes.js'));
 
-
-
-
 //Archivos Publicos
 app.use(express.static(path.join(__dirname, 'public')));
-
-
-
 
 //Comenzar el Servidor
 app.listen(app.get('port'), () => {
     console.log('Server on port', app.get('port'));
 });
-
-
-
